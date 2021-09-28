@@ -1,0 +1,133 @@
+3. Do the below programs in arrow functions
+
+Print odd numbers in an array:
+
+Program:
+var arr = [3,21,24,56,123,456];
+
+var oddnum = (a) => { 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        if(a[i]%2===1)
+        {
+            result.push(a[i]);
+        }
+    }
+    return result;
+};
+
+console.log(oddnum(arr));
+
+Output:
+[ 3, 21, 123 ]
+
+Convert all the strings to title caps in a string array:
+
+Program:
+var arr = ['Book name','table of content','price','publication'];
+
+var titlecaps = (a) => { 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+       var s = a[i].toLowerCase().split(" ");
+       for(let j=0;j<s.length;j++)
+       {
+           s[j]=s[j][0].toUpperCase()+s[j].slice(1);
+       }
+       result.push(s.join(" "));
+    }
+    return result;
+};
+
+console.log(titlecaps(arr));
+
+Output:
+[ 'Book Name', 'Table Of Content', 'Price', 'Publication' ]
+
+Sum of all numbers in an array:
+
+Program:
+var arr = [3,21,24,56,123];
+
+var sumofallnumbers = (a) => { 
+    var sum = 0;
+    for(let i=0;i<a.length;i++)
+    {
+        sum+=a[i];
+    }
+    return sum;
+};
+
+console.log(sumofallnumbers(arr));
+
+Output:
+227
+
+Return all the prime numbers in an array:
+
+Program:
+var arr = [3,21,24,20,23,7,19,5];
+
+var primenumbers = (a) => { 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        var isprime = true;
+        if(a[i]===2)
+        {
+            result.push(a[i]);
+        }
+        else
+        {
+            for(let j=2;j<(a[i]/2);j++)
+            {
+                if(a[i]%j===0)
+                {
+                    isprime=false;
+                    break;
+                }
+            }
+            if(isprime)
+            {
+                result.push(a[i]);
+            }
+        }
+    }
+    return result;
+};
+
+console.log(primenumbers(arr));
+
+Output:
+[ 3, 23, 7, 19, 5 ]
+
+Return all the palindromes in an array:
+
+Program:
+var arr = [3,121,41,22,2332];
+
+var palindrome = (a) => { 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        let n = a[i],r,res=0;
+        while(n>0)
+        {
+            r=n%10;
+            res=r+res*10;
+            n=parseInt(n/10);
+        }
+        if(res===a[i])
+        {
+            result.push(a[i]);
+        }
+    }
+    return result;
+};
+
+console.log(palindrome(arr));
+
+Output:
+[ 3, 121, 22, 2332 ]

@@ -1,0 +1,307 @@
+1.Do the below programs in anonymous function & IIFE
+
+Print odd numbers in an array:
+
+Program:
+var arr = [3,21,24,56,123,456];
+
+((a)=>{
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        if(a[i]%2===1)
+        {
+            result.push(a[i]);
+        }
+    }
+    console.log(result);
+})(arr);
+
+var oddnum = function(a)
+{ 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        if(a[i]%2===1)
+        {
+            result.push(a[i]);
+        }
+    }
+    return result;
+};
+
+console.log(oddnum(arr));
+
+Output:
+[ 3, 21, 123 ]
+[ 3, 21, 123 ]
+
+
+Convert all the strings to title caps in a string array:
+
+Program:
+var arr = ['Book name','table of content','price','publication'];
+
+((a)=>{
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+       var s = a[i].toLowerCase().split(" ");
+       for(let j=0;j<s.length;j++)
+       {
+           s[j]=s[j][0].toUpperCase()+s[j].slice(1);
+       }
+       result.push(s.join(" "));
+    }
+    console.log(result);
+})(arr);
+
+var titlecaps = function(a)
+{ 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+       var s = a[i].toLowerCase().split(" ");
+       for(let j=0;j<s.length;j++)
+       {
+           s[j]=s[j][0].toUpperCase()+s[j].slice(1);
+       }
+       result.push(s.join(" "));
+    }
+    return result;
+};
+
+console.log(titlecaps(arr));
+
+Output:
+[ 'Book Name', 'Table Of Content', 'Price', 'Publication' ]
+[ 'Book Name', 'Table Of Content', 'Price', 'Publication' ]
+
+
+Sum of all numbers in an array:
+
+Program:
+var arr = [3,21,24,56,123];
+
+((a)=>{
+    var sum = 0;
+    for(let i=0;i<a.length;i++)
+    {
+        sum+=a[i];
+    }
+    console.log(sum);
+})(arr);
+
+var sumofallnumbers = function(a)
+{ 
+    var sum = 0;
+    for(let i=0;i<a.length;i++)
+    {
+        sum+=a[i];
+    }
+    return sum;
+};
+
+console.log(sumofallnumbers(arr));
+
+Output:
+227
+227
+
+
+Return all the prime numbers in an array:
+
+Program:
+var arr = [3,21,24,20,23,7,19,5];
+
+((a)=>{
+   var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        var isprime = true;
+        if(a[i]===2)
+        {
+            result.push(a[i]);
+        }
+        else
+        {
+            for(let j=2;j<(a[i]/2);j++)
+            {
+                if(a[i]%j===0)
+                {
+                    isprime=false;
+                    break;
+                }
+            }
+            if(isprime)
+            {
+                result.push(a[i]);
+            }
+        }
+    }
+    console.log(result);
+})(arr);
+
+var primenumbers = function(a)
+{ 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        var isprime = true;
+        if(a[i]===2)
+        {
+            result.push(a[i]);
+        }
+        else
+        {
+            for(let j=2;j<(a[i]/2);j++)
+            {
+                if(a[i]%j===0)
+                {
+                    isprime=false;
+                    break;
+                }
+            }
+            if(isprime)
+            {
+                result.push(a[i]);
+            }
+        }
+    }
+    return result;
+};
+
+console.log(primenumbers(arr));
+
+Return all the palindromes in an array:
+
+Program:
+var arr = [3,121,41,22,2332];
+
+((a)=>{
+   var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        let n = a[i],r,res=0;
+        while(n>0)
+        {
+            r=n%10;
+            res=r+res*10;
+            n=parseInt(n/10);
+        }
+        if(res===a[i])
+        {
+            result.push(a[i]);
+        }
+    }
+    console.log(result);
+})(arr);
+
+var palindrome = function(a)
+{ 
+    var result = [];
+    for(let i=0;i<a.length;i++)
+    {
+        let n = a[i],r,res=0;
+        while(n>0)
+        {
+            r=n%10;
+            res=r+res*10;
+            n=parseInt(n/10);
+        }
+        if(res===a[i])
+        {
+            result.push(a[i]);
+        }
+    }
+    return result;
+};
+
+console.log(palindrome(arr));
+
+Output:
+[ 3, 121, 22, 2332 ]
+[ 3, 121, 22, 2332 ]
+
+Return median of two sorted arrays of same size:
+		
+Program:
+var arr1 = [11,13,15,17,18,23];
+
+var arr2 = [20,22,24,30,32,35];
+
+((a1,a2)=>{
+    
+   var r = a1.concat(a2).sort(function(a,b){return a-b});
+   console.log((r[a1.length]+r[a1.length-1])/2);
+   
+})(arr1,arr2);
+
+var median = function(a1,a2)
+{ 
+    var r = a1.concat(a2).sort(function(a,b){return a-b});
+    return (r[a1.length]+r[a1.length-1])/2;
+};
+
+console.log(median(arr1,arr2));
+
+Output:
+21
+21
+	
+Remove duplicates from an array:
+
+Program:
+var arr = [11,12,11,17,18,19,13];
+
+((a)=>{
+    var result=[];
+    for(var i=0;i<a.length;i++)
+    {
+        if(a.lastIndexOf(a[i])===a.indexOf(a[i]))
+        {
+            result.push(a[i]);
+        }
+    }
+    console.log(result);
+})(arr);
+
+var duplicate = function(a)
+{ 
+    var result=[];
+    for(var i=0;i<a.length;i++)
+    {
+        if(a.lastIndexOf(a[i])===a.indexOf(a[i]))
+        {
+            result.push(a[i]);
+        }
+    }
+    return result;
+};
+
+console.log(duplicate(arr));
+
+Output:
+[ 12, 17, 18, 19, 13 ]
+[ 12, 17, 18, 19, 13 ]
+
+Rotate an array by k times
+
+Program:
+var arr = [11,12,11,17,18,19,13];
+var k=4;
+
+((a,n)=>{
+    console.log(a.slice(n).concat(a.slice(0,n)));
+})(arr,k);
+
+var arrayrotation = function(a,n)
+{ 
+    return a.slice(n).concat(a.slice(0,n));
+};
+
+console.log(arrayrotation(arr,k));
+
+Output:
+[ 18, 19, 13, 11, 12, 11, 17 ]
+[ 18, 19, 13, 11, 12, 11, 17 ]
